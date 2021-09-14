@@ -8,6 +8,7 @@ import requests
 import json
 from config import imgbb_api_key, mongodb_pass
 import pymongo
+from pytz import timezone
 
 
 class Screenshotter:
@@ -71,7 +72,7 @@ class Screenshotter:
                 "subreddit": subreddit,
                 "subscribers": int(subscribers.replace(',', '')),
                 "active": int(active.replace(',', '')),
-                "timestamp": datetime.now().strftime('%m/%d/%Y %I:%M %p'),
+                "timestamp": datetime.strptime(datetime.now(tz=timezone('US/Eastern')).strftime('%m/%d/%Y %I:%M:%S'), '%m/%d/%Y %H:%M:%S'),
                 "epoch": time.time(),
                 "base64": screenshot,
             }
