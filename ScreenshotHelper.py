@@ -69,8 +69,8 @@ class Screenshotter:
             info = {
                 "ss_link": response_obj["data"]["display_url"],
                 "subreddit": subreddit,
-                "subscribers": subscribers,
-                "active": active,
+                "subscribers": int(subscribers.replace(',', '')),
+                "active": int(active.replace(',', '')),
                 "timestamp": datetime.now().strftime('%m/%d/%Y %I:%M %p'),
                 "epoch": time.time(),
                 "base64": screenshot,

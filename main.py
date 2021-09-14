@@ -16,7 +16,7 @@ def close_script():
     print("Closing script")
 
 
-@sched.scheduled_job('interval', hours=1)
+@sched.scheduled_job('interval', minutes=30)
 def scheduled_job():
     print('running screenshot job at {}'.format(datetime.now().strftime('%m/%d/%Y %I:%M %p')))
     ss.take_screenshot(subreddit_list)
