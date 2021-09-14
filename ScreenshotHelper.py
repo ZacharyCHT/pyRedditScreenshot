@@ -74,7 +74,6 @@ class Screenshotter:
                 "active": int(active.replace(',', '')),
                 "timestamp": datetime.strptime(datetime.now(tz=timezone('US/Eastern')).strftime('%m/%d/%Y %I:%M:%S'), '%m/%d/%Y %H:%M:%S'),
                 "epoch": time.time(),
-                "base64": screenshot,
             }
             #print(info)
             self.collection.insert(info)
