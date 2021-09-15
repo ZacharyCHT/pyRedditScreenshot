@@ -11,3 +11,6 @@
 ---
 my mongodb is hard coded right now but that could easily be changed
 ---
+---
+I plan on rewriting the code to make it cleaner at some point
+---
