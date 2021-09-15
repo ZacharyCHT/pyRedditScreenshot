@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 import requests
 import json
-from config import imgbb_api_key, mongodb_pass
+from config import imgbb_api_key, mongodb_pass, db_name, collection_name
 import pymongo
 from pytz import timezone
 
@@ -25,12 +25,12 @@ class Screenshotter:
         )
         self.imgbb_url = 'https://api.imgbb.com/1/upload'
         self.client = pymongo.MongoClient(
-            f"mongodb+srv://dbUser:{mongodb_pass}@cluster0.nv3se.mongodb.net/RedditScreenshots?retryWrites=true&w=majority",
+            f"mongodb+srv://dbUser:{mongodb_pass}@cluster0.nv3se.mongodb.net/{db_name}?retryWrites=true&w=majority",
             ssl=True,
             ssl_cert_reqs=ssl.CERT_NONE,
         )
-        self.db = self.client['RedditScreenshots']
-        self.collection = self.db['noidea']
+        self.db = self.client[db_name]
+        self.collection = self.db[collection_name]
 
     # List databases for testing
     def list_database(self):
